@@ -269,14 +269,14 @@ while True:
     if ball.xcor() > 800:
         ball.goto(0, 0)
         ball.dx *= -1
-        R += 1
+        L += 1
         pen.clear()
         pen.write("LEFT {}      {} RIGHT".format(L, R), align="center", font=("Ubuntu", 24, "normal"))
 
     if ball.xcor() < -800:
         ball.goto(0, 0)
         ball.dx *= -1
-        L += 1
+        R += 1
         pen.clear()
         pen.write("LEFT {}      {} RIGHT".format(L, R), align="center", font=("Ubuntu", 24, "normal"))
 
