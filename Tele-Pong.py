@@ -101,7 +101,7 @@ ballc.color("grey")
 ballc.penup()
 ballc.goto(0,0)
 
-ball.dx = 1
+ball.dx = 0.5
 ball.dy = 1
 
 lista = [1, -1]
@@ -250,6 +250,13 @@ def restart():
     ballb.goto(0,0)
     ballc.goto(0,0)
 
+def inversionx():
+    ball.dx *= -1
+
+def inversiony():
+    ball.dy *= -1
+
+
 # Keyboard binding
 
 wn.listen()
@@ -275,6 +282,8 @@ wn.onkey(paddleR_up, "o")
 wn.onkey(paddleR_down, "l")
 wn.onkey(paddler_up, "i")
 wn.onkey(paddler_down, "k")
+wn.onkey(inversionx, "x")
+wn.onkey(inversiony, "c")
 
 while True:
     wn.update()
@@ -437,6 +446,8 @@ while True:
 
     #additional boundaries
 
+   
+
     if (ball.dx > 8):
         ball.dx = 8
 
@@ -448,8 +459,8 @@ while True:
 
     if (ball.dy < -8):
         ball.dy = -8
+    
 
-    """
     if ((ball.dx * ball.dy == 64) or (ball.dx * ball.dy == -64)):
         ball.dx = -1
         ball.dy = 1
@@ -458,7 +469,6 @@ while True:
         balla.goto(0,0)
         ballb.goto(0,0)
         ballc.goto(0,0)
-    """
-    
+
     ven.clear()
     ven.write("VERTICAL SPEED {}      {} HORIZONTAL SPEED".format(round(abs(ball.dy), 2), round(abs(ball.dx), 2)), align="center", font=("Ubuntu", 24, "normal"))
